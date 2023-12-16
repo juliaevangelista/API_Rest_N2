@@ -1,15 +1,9 @@
 ## Banco de Dados
 ~~~sql
 CREATE USER 'devdev'@localhost IDENTIFIED BY 'dev' ;
-
 CREATE DATABASE redesocial ;
-
-GRANT ALL ON redesocial.* TO 'devdev' @localhost
-
-    WITH GRANT OPTION ;
-    
+GRANT ALL ON redesocial.* TO 'devdev' @localhost WITH GRANT OPTION ;
 FLUSH PRIVILEGES ;
-
 use redesocial ;
 CREATE TABLE redesocial (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
