@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Criação de Rede Social</title>
+</head>
+<body class="formulario">
+    <div class="box">
+        <div class="form-box">
+            <h2>Criação de Rede Social</h2>
+            <form th:object="${redeSocial}" th:action="@{/redes-sociais/formulario}" method="post">
+                
+                <input th:if="${redeSocial != null}" type="hidden" name="_method" value="put">
+                <input type="hidden" name="id" th:value="${redeSocial?.getId()}">
+                
+                <div class="input-group">
+                    <label for="nomeUsuario">Nome do Usuário:</label>
+                    <input type="text" id="nomeUsuario" name="nomeUsuario" th:value="${redeSocial?.getNomeUsuario()}" placeholder="Digite o nome do usuário" required/> 
+                </div>
+                <div class="input-group">
+                    <label for="senha">Senha:</label>
+                    <input type="password" id="senha" name="senha" th:value="${redeSocial?.getSenha()}" placeholder="Digite a senha" required/>            
+                </div>
+                <div class="input-group">
+                    <label for="textoPostagem">Texto da Postagem:</label>
+                    <textarea id="textoPostagem" name="textoPostagem" th:text="${redeSocial?.getTextoPostagem()}" placeholder="Digite o texto da postagem" required></textarea>            
+                </div>
+                <div class="input-group">
+                    <label for="numeroCurtidas">Número de Curtidas:</label>
+                    <input type="number" id="numeroCurtidas" name="numeroCurtidas" th:value="${redeSocial?.getNumeroCurtidas()}" placeholder="Digite o número de curtidas" required/>            
+                </div>
+                <div class="input-group">
+                    <button type="submit">Salvar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

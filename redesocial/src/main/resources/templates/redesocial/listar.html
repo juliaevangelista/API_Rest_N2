@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <title>Lista de Redes Sociais</title>
+</head>
+
+<body>
+    <h1>Lista de Redes Sociais</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome do Usuário</th>
+                <th>Local</th>
+                <th>Agência</th>
+                <th>Data</th>
+                <th>Número de Curtidas</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="redeSocial : ${redesSociais}">
+                <td th:text="${redeSocial.getId()}"></td>
+                <td th:text="${redeSocial.getNomeUsuario()}"></td>
+                <td th:text="${redeSocial.getLocal()}"></td>
+                <td th:text="${redeSocial.getAgencia()}"></td>
+                <td th:text="${redeSocial.getData()}"></td>
+                <td th:text="${redeSocial.getNumeroCurtidas()}"></td>
+                <td>
+                    <form action="\redes-sociais" method="post">
+                        <input type="hidden" name="_method" value="delete">
+                        <input type="hidden" name="id" th:value="${redeSocial.getId}">
+                        <button class="deletebutton" type="submit">
+                            <i class="bx bxs-trash"></i>
+                        </button>
+                    </form> 
+                    <a th:href="@{/redes-sociais/formulario?id={id}(id=${redeSocial.getId()})}">
+                        <i class='bx bxs-edit'></i>
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <button class="action">
+        <a href="/redes-sociais/formulario">Criar Nova Rede Social</a>
+    </button>
+</body>
+</html>
