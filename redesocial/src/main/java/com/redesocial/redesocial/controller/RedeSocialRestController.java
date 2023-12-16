@@ -16,7 +16,7 @@ import com.redesocial.redesocial.model.RedeSocial;
 import com.redesocial.redesocial.model.RedeSocialRepository;
 
 @RestController
-@RequestMapping("/api/redessocial")
+@RequestMapping("/api/redesocial")
 public class RedeSocialRestController {
 
     @Autowired

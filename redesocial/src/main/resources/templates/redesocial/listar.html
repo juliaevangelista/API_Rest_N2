@@ -23,7 +23,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr th:each="redeSocial : ${redesSociais}">
+            <tr th:each="redeSocial : ${redeSocial}">
                 <td th:text="${redeSocial.getId()}"></td>
                 <td th:text="${redeSocial.getNomeUsuario()}"></td>
                 <td th:text="${redeSocial.getLocal()}"></td>
@@ -31,14 +31,14 @@
                 <td th:text="${redeSocial.getData()}"></td>
                 <td th:text="${redeSocial.getNumeroCurtidas()}"></td>
                 <td>
-                    <form action="\redes-sociais" method="post">
+                    <form action="\redesocial" method="post">
                         <input type="hidden" name="_method" value="delete">
                         <input type="hidden" name="id" th:value="${redeSocial.getId}">
                         <button class="deletebutton" type="submit">
                             <i class="bx bxs-trash"></i>
                         </button>
                     </form> 
-                    <a th:href="@{/redes-sociais/formulario?id={id}(id=${redeSocial.getId()})}">
+                    <a th:href="@{/redesocial/formulario?id={id}(id=${redeSocial.getId()})}">
                         <i class='bx bxs-edit'></i>
                     </a>
                 </td>
@@ -46,7 +46,7 @@
         </tbody>
     </table>
     <button class="action">
-        <a href="/redes-sociais/formulario">Criar Nova Rede Social</a>
+        <a href="/redesocial/formulario">Criar Nova Rede Social</a>
     </button>
 </body>
 </html>

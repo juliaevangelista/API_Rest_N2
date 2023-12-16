@@ -1,5 +1,7 @@
 package com.redesocial.redesocial.model;
 
+import org.antlr.v4.runtime.misc.NotNull;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -22,7 +24,8 @@ public class RedeSocial {
     private String textopostagem;
 
     // Atributos para representar uma curtida
-    private int numerocurtidas;
+    private Integer numerocurtidas;
+    private String bio;
 
     // Atributos para representar amigos (pode ser uma lista de IDs de usuários, por exemplo)
     // Ou você pode ter uma tabela separada para armazenar as relações de amizade
@@ -33,6 +36,7 @@ public class RedeSocial {
         this.senha = dados.senha();
         this.textopostagem = dados.textopostagem();
         this.numerocurtidas = dados.numerocurtidas();
+        this.bio = dados.bio();
     }
 
 
@@ -42,53 +46,75 @@ public class RedeSocial {
         this.senha = dados.senha();
         this.textopostagem = dados.textopostagem();
         this.numerocurtidas = dados.numerocurtidas();
+        this.bio = dados.bio();
     }
 
-
-    @Override
-    public String toString() {
-        return "RedeSocial [id=" + id + ", nomeusuario=" + nomeusuario + ", textopostagem=" + textopostagem
-                + ", numerocurtidas=" + numerocurtidas + "]";
-    }
 
     public Long getId() {
         return id;
     }
 
+
     public void setId(Long id) {
         this.id = id;
     }
+
 
     public String getNomeusuario() {
         return nomeusuario;
     }
 
+
     public void setNomeusuario(String nomeusuario) {
         this.nomeusuario = nomeusuario;
     }
+
 
     public String getSenha() {
         return senha;
     }
 
+
     public void setSenha(String senha) {
         this.senha = senha;
     }
+
 
     public String getTextopostagem() {
         return textopostagem;
     }
 
+
     public void setTextopostagem(String textopostagem) {
         this.textopostagem = textopostagem;
     }
 
-    public int getNumerocurtidas() {
+
+    public Integer getNumerocurtidas() {
         return numerocurtidas;
     }
 
-    public void setNumerocurtidas(int numerocurtidas) {
+
+    public void setNumerocurtidas(Integer numerocurtidas) {
         this.numerocurtidas = numerocurtidas;
     }
+
+
+    public String getBio() {
+        return bio;
+    }
+
+
+    public void setBio(String bio) {
+        this.bio = bio;
+    }
+
+
+    @Override
+    public String toString() {
+        return "RedeSocial [id=" + id + ", nomeusuario=" + nomeusuario + ", senha=" + senha + ", textopostagem="
+                + textopostagem + ", numerocurtidas=" + numerocurtidas + ", bio=" + bio + "]";
+    }
+    
 }
 

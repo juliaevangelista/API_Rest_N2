@@ -10,6 +10,6 @@ public class LoginController {
     
     @GetMapping
     String loadHome(){
-        return "redirect:/eventos";
+        return "redirect:/redesocial";
     }
 }

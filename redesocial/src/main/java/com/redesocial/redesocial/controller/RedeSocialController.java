@@ -18,7 +18,7 @@ import com.redesocial.redesocial.model.RedeSocialUpdateDados;
 import jakarta.transaction.Transactional;
 
 @Controller
-@RequestMapping("/redessocial")
+@RequestMapping("/redesocial")
 public class RedeSocialController {
 
     @Autowired
@@ -30,13 +30,13 @@ public class RedeSocialController {
             RedeSocial redeSocial = repository.findById(id).orElse(null);
             model.addAttribute("redeSocial", redeSocial);
         }
-        return "redes_sociais/formulario";
+        return "redesocial/formulario";
     }
 
     @GetMapping
     public String loadRedeSocialList(Model model) {
-        model.addAttribute("redesSociais", repository.findAll());
-        return "redes_sociais/listar";
+        model.addAttribute("redesocial", repository.findAll());
+        return "redesocial/listar";
     }
 
     @PostMapping("/formulario")
@@ -44,14 +44,14 @@ public class RedeSocialController {
     public String registrarRedeSocial(RedeSocialDados dados) {
         RedeSocial redeSocial = new RedeSocial(dados);
         repository.save(redeSocial);
-        return "redirect:/redes-sociais";
+        return "redirect:/redesocial";
     }
 
     @DeleteMapping("/{id}")
     @Transactional
     public String deletarRedeSocial(@PathVariable Long id) {
         repository.deleteById(id);
-        return "redirect:/redes-sociais";
+        return "redirect:/redesocial";
     }
 
     @PutMapping("/{id}")
@@ -61,6 +61,6 @@ public class RedeSocialController {
         if (redeSocial != null) {
             redeSocial.atualizaRedeSocial(dados);
         }
-        return "redirect:/redes-sociais";
+        return "redirect:/redesocial";
     }
 }
