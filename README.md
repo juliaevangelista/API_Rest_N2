@@ -23,12 +23,8 @@ CREATE TABLE redesocial (
 
 ## Endpoints
 
-- Listar todos os eventos: GET http://localhost:8080/api/redesocial
-
-- Obter um evento específico: GET http://localhost:8080/api/redesocial/{id}
-
-- Criar um novo evento: POST http://localhost:8080/api/redesocial
-
-- Atualizar um evento existente: PUT http://localhost:8080/api/redesocial/{id}
-
-- Excluir um evento: DELETE http://localhost:8080/api/redesocial/{id}
+Listar todos um Usuário: GET http://localhost:8080/api/redesocial
+Obter um Usuário específico: GET http://localhost:8080/api/redesocial/{id}
+Criar um novo Usuário: POST http://localhost:8080/api/redesocial
+Atualizar um Usuário existente: PUT http://localhost:8080/api/redesocial/{id}
+Excluir um Usuário: DELETE http://localhost:8080/api/redesocial/{id}
